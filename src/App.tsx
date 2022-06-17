@@ -1,24 +1,23 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Outlet } from "react-router-dom";
+import Header from "components/main-page/Header";
+import Footer from "components/main-page/Footer";
+import RawgApiWrapper from "rawg-api-wrapper/rawg-api-wrapper";
 
+async function asdf() {
+  // const apiWrapper = new RawgApiWrapper("a04bc9b870c3405d8f219c1fb7a9040e");
+  // const asdf = await apiWrapper.getGameScreenshots(3498);
+  // if (asdf) {
+  //   console.log(asdf);
+  // }
+}
 function App() {
+  asdf();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 }
