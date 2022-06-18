@@ -14,7 +14,7 @@ async function asdf() {
 function App() {
   asdf();
   return (
-    <div className="app">
+    <div className="app flex flex-col h-screen">
       <Header />
       <Outlet />
       <Footer />
