@@ -15,10 +15,18 @@ export default class RawgApiWrapper {
     return `${string}&key=${this.apiKey}`;
   }
 
-  async getGames(page?: number): Promise<GamesResult[] | undefined> {
+  async getGames(
+    page?: number,
+    pageSize?: number,
+    search?: string
+  ): Promise<GamesResult[] | undefined> {
     try {
       const response = await fetch(
-        this.appendKey(`https://api.rawg.io/api/games?page=${page ? page : 1}`),
+        this.appendKey(
+          `https://api.rawg.io/api/games?page=${page ? page : 1}&page_size=${
+            pageSize ? pageSize : 20
+          }&search=${search ? search : ""}`
+        ),
         { mode: "cors" }
       );
       const data = await response.json();
