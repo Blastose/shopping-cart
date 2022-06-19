@@ -13,10 +13,13 @@ async function asdf() {
 }
 function App() {
   asdf();
+
+  const rawgApiWrapper = new RawgApiWrapper("a04bc9b870c3405d8f219c1fb7a9040e");
+
   return (
     <div className="app flex flex-col h-screen">
       <Header />
-      <Outlet />
+      <Outlet context={rawgApiWrapper} />
       <Footer />
     </div>
   );
