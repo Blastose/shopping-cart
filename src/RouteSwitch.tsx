@@ -1,4 +1,5 @@
 import App from "App";
+import GameInfo from "components/game-info-page/GameInfo";
 import Games from "components/games-page/Games";
 import Home from "components/main-page/Home";
 import React from "react";
@@ -10,8 +11,9 @@ export default function RouteSwitch(props: any) {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          <Route path="games" element={<Games />}>
-            <Route path=":gameId" element={null} />
+          <Route path="games">
+            <Route index element={<Games />} />
+            <Route path=":gameId" element={<GameInfo />} />
           </Route>
           <Route path="cart" />
 

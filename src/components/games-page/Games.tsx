@@ -28,15 +28,15 @@ const Games = () => {
 
   return (
     <main className="bg-slate-400 flex-1 flex">
-      <div className="lg:container lg:mx-auto py-6">
+      <div className="lg:container lg:mx-auto py-6 px-4">
         <div className="flex justify-between">
           <div>
             <p>Games</p>
             <div>
               {games.map((game) => {
                 return (
-                  <Link to={`/games/${game.id}`}>
-                    <div key={game.id}>{game.name}</div>
+                  <Link to={`/games/${game.id}`} key={game.id}>
+                    <div>{game.name}</div>
                   </Link>
                 );
               })}
