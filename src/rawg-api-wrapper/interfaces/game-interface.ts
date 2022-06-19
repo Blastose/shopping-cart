@@ -1,3 +1,5 @@
+import Genre from "./genre-interface";
+
 export default interface Game {
   id: number;
   name: string;
@@ -9,4 +11,6 @@ export default interface Game {
   background_image: string;
   developers: { id: number; name: string }[];
   publishers: { id: number; name: string }[];
+  genres: Genre[];
+  parent_platforms: { id: number; name: string }[];
 }
