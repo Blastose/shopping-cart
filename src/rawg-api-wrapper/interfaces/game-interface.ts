@@ -12,5 +12,6 @@ export default interface Game {
   developers: { id: number; name: string }[];
   publishers: { id: number; name: string }[];
   genres: Genre[];
-  parent_platforms: { id: number; name: string }[];
+  platforms: { platform: { id: number; name: string }; released_at: string }[];
+  parent_platforms: { platform: { id: number; name: string } }[];
 }
