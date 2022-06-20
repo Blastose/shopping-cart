@@ -1,7 +1,7 @@
 import Game from "rawg-api-wrapper/interfaces/game-interface";
 import RawgApiWrapper from "rawg-api-wrapper/rawg-api-wrapper";
 import { useEffect, useState } from "react";
-import { useOutletContext, useParams } from "react-router-dom";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import GameScreenshot from "rawg-api-wrapper/interfaces/game-screenshot-interface";
 import GameScreenshots from "./GameScreenshots";
@@ -47,18 +47,23 @@ const GameInfo = () => {
         {game && screenshots && (
           <div className="flex flex-col gap-4">
             <div className="grid md:grid-cols-[70%_1fr] gap-8">
-              <GameScreenshots
-                screenshots={[
-                  {
-                    id: -1,
-                    image: game.background_image,
-                    width: -1,
-                    height: -1,
-                    is_deleted: false,
-                  },
-                  ...screenshots,
-                ]}
-              />
+              <div className="flex flex-col gap-4">
+                <Link to="/games" className="hover:text-white duration-300">
+                  <span className="font-bold text-2xl">🠔 Back to games</span>
+                </Link>
+                <GameScreenshots
+                  screenshots={[
+                    {
+                      id: -1,
+                      image: game.background_image,
+                      width: -1,
+                      height: -1,
+                      is_deleted: false,
+                    },
+                    ...screenshots,
+                  ]}
+                />
+              </div>
               <div className="flex flex-col gap-2">
                 <h1 className="text-2xl font-bold">About</h1>
                 <div>{game.description_raw}</div>

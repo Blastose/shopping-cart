@@ -24,7 +24,9 @@ const Home = () => {
         <div className="flex justify-between">
           <span className="font-bold text-2xl">Popular Games</span>
           <Link to="/games">
-            <span className="font-bold text-xl">See more ➔</span>
+            <span className="font-bold text-xl hover:text-white duration-300">
+              See more ➔
+            </span>
           </Link>
         </div>
         <div>
