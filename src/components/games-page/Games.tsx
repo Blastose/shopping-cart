@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useOutletContext, useSearchParams } from "react-router-dom";
 import RawgApiWrapper from "rawg-api-wrapper/rawg-api-wrapper";
 import GamesResult from "rawg-api-wrapper/interfaces/games-result-interface";
+import GameCard from "components/game-card/GameCard";
 
 const Games = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const page = searchParams.get("page");
   const searchQuery = searchParams.get("search");
@@ -28,15 +29,15 @@ const Games = () => {
 
   return (
     <main className="bg-slate-400 flex-1 flex">
-      <div className="lg:container lg:mx-auto py-6 px-4">
+      <div className="lg:container lg:mx-auto py-6 px-4 duration-300">
         <div className="flex justify-between">
-          <div>
-            <p>Games</p>
-            <div>
+          <div className="flex flex-col items-center flex-1">
+            <p className="self-start text-xl font-bold">Games</p>
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {games.map((game) => {
                 return (
                   <Link to={`/games/${game.id}`} key={game.id}>
-                    <div>{game.name}</div>
+                    <GameCard game={game} />
                   </Link>
                 );
               })}
