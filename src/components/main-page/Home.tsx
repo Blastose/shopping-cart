@@ -20,11 +20,11 @@ const Home = () => {
 
   return (
     <main className="bg-slate-400 flex-1 flex">
-      <div className="lg:container lg:mx-auto py-6 px-4">
+      <div className="lg:container lg:mx-auto py-6 px-4  duration-300">
         <div className="flex justify-between">
           <span className="font-bold text-2xl">Popular Games</span>
           <Link to="/games">
-            <span className="font-bold text-xl">See more -&gt;</span>
+            <span className="font-bold text-xl">See more ➔</span>
           </Link>
         </div>
         <div>

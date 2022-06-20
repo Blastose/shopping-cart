@@ -46,7 +46,6 @@ const GameInfo = () => {
       <div className="lg:container lg:mx-auto py-6 px-4">
         {game && screenshots && (
           <div className="flex flex-col gap-4">
-            <div></div>
             <div className="grid md:grid-cols-[70%_1fr] gap-8">
               <GameScreenshots
                 screenshots={[

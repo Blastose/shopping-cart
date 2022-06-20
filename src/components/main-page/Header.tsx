@@ -7,7 +7,7 @@ export default function Header() {
       <div className="lg:container lg:mx-auto px-12 py-4 text-white">
         <div className="flex justify-between items-center">
           <div className="text-3xl font-extrabold">
-            <Link to="/">Logo</Link>
+            <Link to="/">Game Store</Link>
           </div>
           <div>
             <SearchInput />
