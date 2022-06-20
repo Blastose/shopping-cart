@@ -5,7 +5,7 @@ export default interface GamesResult {
   name: string;
   released: string;
   background_image: string;
-  raiting: number;
+  rating: number;
   tba: boolean;
   developers: { id: number; name: string }[];
   publishers: { id: number; name: string }[];
