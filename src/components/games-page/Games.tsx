@@ -32,7 +32,7 @@ const Games = () => {
       <div className="lg:container lg:mx-auto py-6 px-4 duration-300">
         <div className="flex justify-between">
           <div className="flex flex-col items-center flex-1">
-            <p className="self-start text-xl font-bold">Games</p>
+            <p className="self-start font-bold text-2xl">Games</p>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 2xl:gap-6">
               <GameCardView games={games} numRows={4} />
             </div>

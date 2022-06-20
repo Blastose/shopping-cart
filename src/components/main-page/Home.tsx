@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import RawgApiWrapper from "rawg-api-wrapper/rawg-api-wrapper";
 import GamesResult from "rawg-api-wrapper/interfaces/games-result-interface";
+import GameCardView from "components/game-card/GameCardView";
 
 const Home = () => {
   const rawgApiWrapper = useOutletContext() as RawgApiWrapper;
@@ -21,21 +22,14 @@ const Home = () => {
     <main className="bg-slate-400 flex-1 flex">
       <div className="lg:container lg:mx-auto py-6 px-4">
         <div className="flex justify-between">
-          <div>
-            <p>Home</p>
-            <div>
-              <span>Games</span>
-              <div>
-                {games.map((game) => {
-                  return (
-                    <Link to={`/games/${game.id}`} key={game.id}>
-                      <div>{game.name}</div>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-            <Link to="/games">To /games</Link>
+          <span className="font-bold text-2xl">Popular Games</span>
+          <Link to="/games">
+            <span className="font-bold text-xl">See more -&gt;</span>
+          </Link>
+        </div>
+        <div>
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 2xl:gap-6">
+            <GameCardView games={games} numRows={4} />
           </div>
         </div>
       </div>
