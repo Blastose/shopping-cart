@@ -3,11 +3,11 @@ import GameInfo from "components/game-info-page/GameInfo";
 import Games from "components/games-page/Games";
 import Home from "components/main-page/Home";
 import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 
 export default function RouteSwitch(props: any) {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
@@ -28,6 +28,6 @@ export default function RouteSwitch(props: any) {
           />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
