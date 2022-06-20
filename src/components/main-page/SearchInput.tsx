@@ -8,7 +8,13 @@ const SearchInput = () => {
 
   return (
     <div className="flex items-center gap-1">
-      <SearchIcon fill="white" />
+      <SearchIcon
+        fill="white"
+        className="cursor-pointer"
+        onClick={() =>
+          navigate(`/games?search=${encodeURIComponent(searchInput)}`)
+        }
+      />
       <form
         onSubmit={(event) => {
           event.preventDefault();
