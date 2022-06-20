@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useOutletContext, useSearchParams } from "react-router-dom";
+import { useOutletContext, useSearchParams } from "react-router-dom";
 import RawgApiWrapper from "rawg-api-wrapper/rawg-api-wrapper";
 import GamesResult from "rawg-api-wrapper/interfaces/games-result-interface";
-import GameCard from "components/game-card/GameCard";
+import GameCardView from "components/game-card/GameCardView";
 
 const Games = () => {
   const [searchParams] = useSearchParams();
@@ -33,14 +33,8 @@ const Games = () => {
         <div className="flex justify-between">
           <div className="flex flex-col items-center flex-1">
             <p className="self-start text-xl font-bold">Games</p>
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {games.map((game) => {
-                return (
-                  <Link to={`/games/${game.id}`} key={game.id}>
-                    <GameCard game={game} />
-                  </Link>
-                );
-              })}
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 2xl:gap-6">
+              <GameCardView games={games} numRows={4} />
             </div>
           </div>
         </div>
