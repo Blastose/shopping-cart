@@ -1,15 +1,36 @@
+interface CartItem {
+  name: string;
+  id: number;
+}
+
 class Cart {
-  items: { name: string; price: string; id: number }[];
-  constructor() {
-    this.items = [];
+  items: CartItem[];
+  constructor(items?: CartItem[]) {
+    if (items) {
+      this.items = items;
+    } else {
+      this.items = [];
+    }
   }
 
-  addItemToCart(item: { name: string; price: string; id: number }) {
-    this.items.push(item);
+  itemInCart(id: number): boolean {
+    return this.items.some((item) => {
+      return item.id === id;
+    });
+  }
+
+  addItemToCart(item: CartItem) {
+    if (!this.itemInCart(item.id)) {
+      this.items.push(item);
+    }
+
+    return this.items;
   }
 
   removeItemFromCart(id: number) {
     this.items = this.items.filter((item) => item.id !== id);
+    return this.items;
   }
 }
-export default Cart;
+export { Cart };
+export type { CartItem };

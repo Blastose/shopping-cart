@@ -1,4 +1,4 @@
-import Cart from "components/cart/cart";
+import { Cart } from "components/cart/cart";
 import SearchInput from "components/main-page/SearchInput";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,9 @@ export default function Header(props: { cart: Cart }) {
           <div>
             <SearchInput />
           </div>
-          <div>Cart - {props.cart.items.length}</div>
+          <div>
+            <Link to="/cart">Cart - {props.cart.items.length}</Link>
+          </div>
         </div>
       </div>
     </header>

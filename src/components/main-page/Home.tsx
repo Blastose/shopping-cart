@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
-import RawgApiWrapper from "rawg-api-wrapper/rawg-api-wrapper";
 import GamesResult from "rawg-api-wrapper/interfaces/games-result-interface";
 import GameCardView from "components/game-card/GameCardView";
+import AppContext from "components/main-page/app-context-interface";
 
 const Home = () => {
-  const rawgApiWrapper = useOutletContext() as RawgApiWrapper;
+  const context = useOutletContext() as AppContext;
+  const rawgApiWrapper = context.rawgApiWrapper;
   const [games, setGames] = useState([] as GamesResult[]);
 
   useEffect(() => {

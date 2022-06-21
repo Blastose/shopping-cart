@@ -1,14 +1,17 @@
 import Game from "rawg-api-wrapper/interfaces/game-interface";
-import RawgApiWrapper from "rawg-api-wrapper/rawg-api-wrapper";
 import { useEffect, useState } from "react";
 import { Link, useOutletContext, useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import GameScreenshot from "rawg-api-wrapper/interfaces/game-screenshot-interface";
 import GameScreenshots from "./GameScreenshots";
+import AppContext from "components/main-page/app-context-interface";
+import AddToCartButton from "./AddToCartButton";
 
 const GameInfo = () => {
   const params = useParams();
-  const rawgApiWrapper = useOutletContext() as RawgApiWrapper;
+  const context = useOutletContext() as AppContext;
+  const rawgApiWrapper = context.rawgApiWrapper;
+
   const [game, setGame] = useState<Game | undefined>(undefined);
   const [screenshots, setScreenShots] = useState<GameScreenshot[] | undefined>(
     undefined
@@ -65,6 +68,12 @@ const GameInfo = () => {
                 />
               </div>
               <div className="flex flex-col gap-2">
+                <AddToCartButton
+                  game={game}
+                  cart={context.cart}
+                  addGameToCart={context.addGameToCart}
+                />
+
                 <h1 className="text-2xl font-bold">About</h1>
                 <div>{game.description_raw}</div>
 

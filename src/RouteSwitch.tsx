@@ -1,4 +1,5 @@
 import App from "App";
+import CartCheckout from "components/cart/CartCheckout";
 import GameInfo from "components/game-info-page/GameInfo";
 import Games from "components/games-page/Games";
 import Home from "components/main-page/Home";
@@ -15,7 +16,7 @@ export default function RouteSwitch(props: any) {
             <Route index element={<Games />} />
             <Route path=":gameId" element={<GameInfo />} />
           </Route>
-          <Route path="cart" />
+          <Route path="cart" element={<CartCheckout />} />
 
           <Route
             path="*"

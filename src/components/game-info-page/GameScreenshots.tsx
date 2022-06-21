@@ -15,7 +15,7 @@ const GameScreenshots = (props: { screenshots: GameScreenshot[] }) => {
       {props.screenshots.map((screenshot) => {
         return (
           <div key={screenshot.id}>
-            <img src={screenshot.image} alt="" />
+            <img src={screenshot.image} alt="" className="rounded-2xl" />
           </div>
         );
       })}
