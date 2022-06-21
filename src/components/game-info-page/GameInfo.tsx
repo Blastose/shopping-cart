@@ -17,14 +17,18 @@ const GameInfo = () => {
     undefined
   );
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const fetchGame = async () => {
       if (!params.gameId) {
         return undefined;
       }
+      setIsLoading(true);
       const fetchedGame = await rawgApiWrapper.getGame(parseInt(params.gameId));
       if (fetchedGame) {
         setGame(fetchedGame);
+        setIsLoading(false);
       }
     };
 
@@ -47,6 +51,11 @@ const GameInfo = () => {
   return (
     <main className="bg-slate-400 flex-1 flex">
       <div className="lg:container lg:mx-auto py-6 px-4">
+        {isLoading && (
+          <div>
+            <span className="text-2xl font-bold">Loading...</span>
+          </div>
+        )}
         {game && screenshots && (
           <div className="flex flex-col gap-4">
             <div className="grid md:grid-cols-[70%_1fr] gap-8">
