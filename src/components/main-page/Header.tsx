@@ -6,7 +6,7 @@ export default function Header(props: { cart: Cart }) {
   return (
     <header className="bg-slate-600">
       <div className="lg:container lg:mx-auto px-12 py-4 text-white">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center flex-col gap-2 sm:flex-row sm:gap-0">
           <div className="text-3xl font-extrabold">
             <Link to="/">Game Store</Link>
           </div>
