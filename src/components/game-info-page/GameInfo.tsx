@@ -46,7 +46,8 @@ const GameInfo = () => {
 
     fetchGame();
     fetchScreenshots();
-  }, [params.gameId, rawgApiWrapper]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main className="bg-slate-400 flex-1 flex">
