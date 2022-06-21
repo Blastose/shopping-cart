@@ -19,6 +19,7 @@ const Games = () => {
 
   useEffect(() => {
     const fetchGames = async () => {
+      setGames([]);
       setIsLoading(true);
       const fetchedGames = await rawgApiWrapper.getGames(
         parseInt(page ? page : "1"),
